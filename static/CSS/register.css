@@ -1,36 +1,36 @@
-/* Page background */
+/* Background */
 body {
     background: linear-gradient(135deg, #667eea, #764ba2);
     min-height: 100vh;
-    font-family: 'Segoe UI', sans-serif;
 }
 
-/* Center container */
-.container {
-    margin-top: 50px;
-}
-
-/* Card styling */
-.card {
-    border: none;
+/* Form container */
+.register-card {
+    background: #ffffff;
     border-radius: 15px;
     padding: 25px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    color: #333;
 }
 
 /* Title */
-h1 {
+.register-title {
     text-align: center;
+    color: white;
     font-weight: bold;
+}
+
+/* Subtitle */
+.register-subtitle {
+    text-align: center;
+    color: rgba(255,255,255,0.8);
     margin-bottom: 20px;
-    color: rgb(0, 0, 0);
 }
 
 /* Labels */
-p {
-    margin-bottom: 5px;
+.form-label {
     font-weight: 500;
+    margin-bottom: 5px;
+    display: block;
 }
 
 /* Inputs */
@@ -42,11 +42,11 @@ input, select, textarea {
     transition: 0.3s;
 }
 
-/* Focus effect */
+/* Focus */
 input:focus, select:focus {
     border-color: #667eea;
     outline: none;
-    box-shadow: 0 0 5px rgba(102, 126, 234, 0.5);
+    box-shadow: 0 0 6px rgba(102, 126, 234, 0.4);
 }
 
 /* Button */
@@ -60,18 +60,6 @@ input:focus, select:focus {
     transition: 0.3s;
 }
 
-/* Button hover */
 .btn-success:hover {
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-}
-
-/* Spacing */
-.row {
-    margin-bottom: 10px;
-}
-
-/* Subtitle text */
-.text-muted {
-    color: rgba(255, 255, 255, 0.8) !important;
 }
