@@ -1,27 +1,46 @@
 {% extends 'base.html' %}
 
+{% load static %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/login.css' %}">
+{% endblock %}
+
 {% block content %}
 <br>
-<div class="container">
+
+<div class="container">1
+    <h1 class="login-title">LOGIN</h1>
     <div class="jumbotron">
-        <div class="card card-body">
+        <div class="card card-body login-card">
             <form action="{% url 'login' %}" method="POST">
                 {% csrf_token %}
                 <div class="input-group flex-nowrap">
-                    <span class="input-group-text" id="addon-wrapping">Username</span>
-                    <input type="text" class="form-control" placeholder="username" aria-label="username" name="username"
-                        aria-describedby="addon-wrapping">
+                    <span class="input-group-text form-label" id="addon-wrapping">Username</span>
+                    <input type="text" class="form-control form-label" placeholder="Username" aria-label="username" name="username" aria-describedby="addon-wrapping">
                 </div>
                 <br>
                 <div class="input-group flex-nowrap">
-                    <span class="input-group-text" id="addon-wrapping">Password</span>
-                    <input type="password" class="form-control" placeholder="password" aria-label="password"
-                        name="password" aria-describedby="addon-wrapping">
+                    <span class="input-group-text form-label" id="addon-wrapping">Password</span>
+                    <input type="password" class="form-control password-wrapper form-label" placeholder="Password" aria-label="password" name="password" aria-describedby="addon-wrapping" id="passwordField">
+                    <span class="toggle-password" onclick="togglePassword()">
+                        <i class="fa fa-eye"></i>
+                    </span>
                 </div>
                 <br>
-                <input type="submit" class="btn btn-success" value="login">
+                <input type="submit" class="btn btn-success btn-login" value="login">
             </form>
         </div>
     </div>
 </div>
+<script>
+function togglePassword() {
+    const passwordField = document.getElementById("passwordField");
+
+    if (passwordField.type === "password") {
+        passwordField.type = "text";
+    } else {
+        passwordField.type = "password";
+    }
+}
+</script>
 {% endblock %}
