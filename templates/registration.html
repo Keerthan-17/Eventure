@@ -11,7 +11,9 @@
             <p>Please proceed to <a href="{% url 'login' %}">Login</a></p>
         </div>
         {% else %}
-        <h1>Registration Form</h1>
+        <h1 class="mb-3">Create Your Account</h1>
+        <p class="text-center text-muted">Fill in your details to get started</p>
+        <!-- <h1>Registration Form</h1> -->
         <div class="card card-body">
             <form enctype="multipart/form-data" method="POST">
                 {% csrf_token %}
