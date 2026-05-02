@@ -4,21 +4,23 @@
 <br>
 <div class="container">
     <div class="jumbotron">
-        <h1>Welcome to the home page</h1>
+        <h1 class="home_title">Welcome to the Home Page</h1>
         <div class="row">
             {% for i in events %}
             <div class="col-md-4 mb-4">
-                <div class="custom-card">
-                    {% if i.image %}
-                    <div class="card-img-wrapper">
-                        <img src="{{ i.image.url }}" alt="event image">
+                <a href="{{ i.id }}" class="card-link">
+                    <div class="custom-card">
+                        {% if i.image %}
+                        <div class="card-img-wrapper">
+                            <img src="{{ i.image.url }}" alt="event image">
+                        </div>
+                        {% endif %}
+                        
+                        <div class="card-body-custom">
+                            <h5>{{ i.name }}</h5>
+                        </div>
                     </div>
-                    {% endif %}
-                    
-                    <div class="card-body-custom">
-                        <h5><a href="{{ i.id }}">{{ i.name }}</a></h5>
-                    </div>
-                </div>
+                </a>
             </div>
             {% endfor %}
         </div>

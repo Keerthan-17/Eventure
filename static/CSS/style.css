@@ -1,3 +1,52 @@
+/* Navbar background */
+.custom-navbar {
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(10px);
+    padding: 10px 20px;
+}
+
+/* Brand */
+.navbar-brand {
+    font-weight: bold;
+    font-size: 22px;
+    color: #ffffff !important;
+    letter-spacing: 1px;
+}
+
+/* Links */
+.nav-link {
+    color: rgba(255, 255, 255, 0.8) !important;
+    margin-right: 10px;
+    transition: 0.3s;
+}
+
+/* Hover effect */
+.nav-link:hover {
+    color: #ffffff !important;
+    transform: translateY(-1px);
+}
+
+/* Active link */
+.nav-link.active {
+    color: #ffffff !important;
+    font-weight: 500;
+}
+
+/* Right icon */
+.navbar-text i {
+    font-size: 22px;
+    color: white;
+}
+
+/* Toggle icon fix (for dark bg) */
+.navbar-toggler {
+    border: none;
+}
+
+.navbar-toggler:focus {
+    box-shadow: none;
+}
+
 /* Reset + base */
 body {
     margin: 0;
@@ -8,7 +57,7 @@ body {
 
 /* Container spacing */
 .container {
-    margin-top: 40px;
+    margin-top: 10px;
 }
 
 /* ================= NAV / HEADINGS ================= */
@@ -68,4 +117,77 @@ h1, h2, h3 {
 
 .card-body-custom a:hover {
     color: #667eea;
+}
+
+/* User icon */
+.user-icon i {
+    font-size: 24px;
+    color: white;
+    transition: 0.3s;
+}
+
+/* Hover effect */
+.user-icon:hover i {
+    color: #38f9d7;
+}
+
+/* Dropdown styling */
+.dropdown-menu {
+    border-radius: 10px;
+    padding: 10px;
+    border: none;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+/* Dropdown items */
+.dropdown-item {
+    border-radius: 6px;
+    padding: 8px 12px;
+    transition: 0.2s;
+}
+
+.dropdown-item:hover {
+    background: #667eea;
+    color: white;
+}
+
+body {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    min-height: 100vh;
+}
+
+/* Add soft shadow container */
+.container {
+    padding: 20px;
+}
+
+/* Remove default link styling */
+.card-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Make sure ALL states are clean */
+.card-link:link,
+.card-link:visited,
+.card-link:active {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Card title default */
+.card-body-custom h5 {
+    color: #222;
+    transition: 0.3s;
+}
+
+/* Only on hover → blue */
+.custom-card:hover h5 {
+    color: #667eea;
+}
+
+.home_title{
+    text-align: center;
+    margin-bottom: 20px;
+    color: whitesmoke;
 }
