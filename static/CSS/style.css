@@ -47,6 +47,11 @@
     box-shadow: none;
 }
 
+.username-text {
+    color: black;   /* change to any color */
+    font-weight: 500;
+}
+
 /* Reset + base */
 body {
     margin: 0;
@@ -191,3 +196,4 @@ body {
     margin-bottom: 20px;
     color: whitesmoke;
 }
+
