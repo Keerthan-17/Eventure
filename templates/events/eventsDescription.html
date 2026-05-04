@@ -1,16 +1,42 @@
 {% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/pages/event.css' %}">
+{% endblock %}
 
 {% block content %}
-<br>
-<div class="container">
-    <div class="jumbotron">
-        <h1>{{ events.name }}</h1>
-        <h6>{{ events.descriptions }}</h6>
-        <p>Basic package: Rs.{{ events.price }} /-</p>
-        <a href="{% url 'enquire' %}" class="btn btn-info">Enquire</a>
-        <a href="{% url 'slotbooking' events.id %}" class="btn btn-success">BookSlot</a>
 
+<div class="event-hero">
+
+    {% if events.image %}
+    <img src="{{ events.image.url }}" class="hero-img" alt="event">
+    {% endif %}
+
+    <div class="hero-overlay"></div>
+
+    <div class="container hero-content">
+        <div class="event-card-premium">
+
+            <h1 class="event-title">{{ events.name }}</h1>
+
+            <p class="event-description">
+                {{ events.descriptions }}
+            </p>
+
+            <div class="event-price">
+                <span>Starting from</span>
+                <h2>₹{{ events.price }}</h2>
+            </div>
+
+            <div class="event-actions">
+                <a href="{% url 'enquire' %}" class="btn btn-enquire">Enquire</a>
+                <a href="{% url 'slotbooking' events.id %}" class="btn btn-book">Book Slot</a>
+            </div>
+
+        </div>
     </div>
+
 </div>
 
 {% endblock %}
