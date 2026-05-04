@@ -1,15 +1,45 @@
 {% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/pages/enquiry.css' %}">
+{% endblock %}
 
 {% block content %}
-<br>
-<div class="container">
-    <div class="jumbotron">
-        <h2>Enquiry Form</h2>
-        <form method="post">
+
+<div class="container enquiry-container">
+
+    <div class="enquiry-card">
+        <h2 class="enquiry-title">Enquiry Form</h2>
+        <p class="enquiry-subtitle">We’ll get back to you shortly</p>
+
+        <form method="POST">
             {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit" class="btn btn-primary">Next</button>
+
+            <div class="form-group">
+                <label>Name</label>
+                {{ form.name }}
+            </div>
+
+            <div class="form-group">
+                <label>Email</label>
+                {{ form.email }}
+            </div>
+
+            <div class="form-group">
+                <label>Phone</label>
+                {{ form.phone }}
+            </div>
+
+            <div class="form-group">
+                <label>Message</label>
+                {{ form.message }}
+            </div>
+
+            <button type="submit" class="btn btn-enquiry">Send Enquiry</button>
         </form>
     </div>
+
 </div>
+
 {% endblock %}

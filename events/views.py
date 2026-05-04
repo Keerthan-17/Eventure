@@ -192,6 +192,8 @@ def calculate_price(request):
 
     return redirect('next')
 
+def enquiry_thanks(request):
+    return render(request, 'events/enquiry_thanks.html')
 
 def success(request):
     return render(request, "events/success.html")
@@ -201,7 +203,9 @@ def enquiry_view(request):
         form = EnquiryForm(request.POST)
         if form.is_valid():
             form.save()
-            return render(request, 'events/enquiry_thanks.html')
+            return redirect('enquiry_thanks')
+        else:
+            print(form.errors)
     else:
         form = EnquiryForm()
     return render(request, 'events/enquire.html', {'form': form})
