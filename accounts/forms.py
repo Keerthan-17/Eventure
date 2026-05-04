@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from accounts.models import userDetails 
 
 class userForm(forms.ModelForm):
+    username = forms.CharField(help_text="")
     password = forms.CharField(widget=forms.PasswordInput)
     class Meta:
         model = User
@@ -16,6 +17,7 @@ class userProfileForm(forms.ModelForm):
     captcha = ReCaptchaField()
 
 class UpdateForm(forms.ModelForm):
+    username = forms.CharField(help_text="")
     class Meta:
         model = User
         fields = ['username','email']
