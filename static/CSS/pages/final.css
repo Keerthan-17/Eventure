@@ -1,0 +1,202 @@
+/* Background */
+body {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+}
+
+/* Container */
+.final-container {
+    min-height: calc(100vh - 70px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Card */
+.final-card {
+    width: 100%;
+    max-width: 700px;
+    padding: 30px;
+    border-radius: 20px;
+
+    background: rgba(255,255,255,0.12);
+    backdrop-filter: blur(15px);
+
+    color: white;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+}
+
+/* Title */
+.final-title {
+    text-align: center;
+    font-weight: 700;
+}
+
+.final-subtitle {
+    text-align: center;
+    font-size: 14px;
+    opacity: 0.8;
+    margin-bottom: 20px;
+}
+
+/* Layout */
+.form-row {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.form-group {
+    flex: 1;
+}
+
+/* Inputs */
+/* Premium input */
+.input-style {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 10px;
+
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.3);
+
+    color: white;
+    font-size: 14px;
+
+    outline: none;
+    transition: all 0.25s ease;
+}
+
+/* Placeholder */
+.input-style::placeholder {
+    color: rgba(255,255,255,0.6);
+}
+
+/* Focus effect */
+.input-style:focus {
+    border-color: #38f9d7;
+    box-shadow: 0 0 10px rgba(56,249,215,0.4);
+    background: rgba(255,255,255,0.2);
+}
+
+/* Select dropdown */
+select.input-style {
+    appearance: none;
+    cursor: pointer;
+    color: white;
+    background-color: rgba(255,255,255,0.15);
+}
+
+select.input-style:focus {
+    color: black;
+}
+
+/* Disabled / readonly */
+.input-style[readonly] {
+    opacity: 0.8;
+    cursor: not-allowed;
+}
+
+.input-style:hover {
+    border-color: rgba(255,255,255,0.5);
+}
+
+.form-group label {
+    font-size: 13px;
+    margin-bottom: 5px;
+    display: block;
+    color: rgba(255,255,255,0.8);
+}
+
+/* Hint */
+.hint {
+    font-size: 12px;
+    opacity: 0.7;
+}
+
+/* Add-ons */
+.addons {
+    margin-top: 15px;
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+/* Toggle style */
+/* Hide checkbox */
+.toggle input {
+    position: absolute;
+    opacity: 0;
+}
+
+/* Toggle layout */
+.toggle {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 8px 12px;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.2);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* Box */
+.toggle-box {
+    width: 18px;
+    height: 18px;
+    border: 2px solid white;
+    border-radius: 4px;
+    position: relative;
+}
+
+/* Tick */
+.toggle-box::after {
+    content: "✔";
+    position: absolute;
+    font-size: 12px;
+    top: -2px;
+    left: 2px;
+    display: none;
+}
+
+/* When checked */
+.toggle input:checked + .toggle-box {
+    background: #38f9d7;
+    border-color: #38f9d7;
+}
+
+/* Show tick */
+.toggle input:checked + .toggle-box::after {
+    display: block;
+    color: white;
+}
+
+/* Highlight full card */
+.toggle:has(input:checked) {
+    background: rgba(56,249,215,0.2);
+    border: 1px solid #38f9d7;
+}
+
+/* Text */
+.toggle-text {
+    font-size: 14px;
+}
+
+/* Button */
+.btn-confirm {
+    width: 100%;
+    margin-top: 20px;
+    padding: 12px;
+    border-radius: 10px;
+
+    background: linear-gradient(135deg, #43e97b, #38f9d7);
+    border: none;
+    color: white;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-confirm:hover {
+    transform: translateY(-2px);
+}

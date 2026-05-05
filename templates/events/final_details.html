@@ -1,85 +1,105 @@
 {% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/pages/final.css' %}">
+{% endblock %}
+
 {% block content %}
 
-<div class="container mt-5">
-    <div class="bg-light p-4 rounded shadow">
-        <h2 class="text-center mb-4">Event Catering Details</h2>
+<div class="final-container">
+
+    <div class="final-card">
+
+        <h2 class="final-title">Finalize Your Booking</h2>
+        <p class="final-subtitle">Review and confirm your catering details</p>
 
         <form method="post" action="{% url 'submit_final_details' %}">
             {% csrf_token %}
 
-            <div class="row mb-3 align-items-end">
-                <!-- Event Name -->
-                <div class="col-md-6">
-                    <label for="event_name" class="form-label">Event Name</label>
-                    <input type="text" class="form-control" id="event_name" name="event_name" value="{{ event_name }}"
-                        readonly>
+            <!-- Event Info -->
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Event Name</label>
+                    <input type="text" name="event_name" value="{{ event_name }}" readonly class="input-style">
                 </div>
 
-                <!-- Event Type -->
-                <div class="col-md-6">
-                    <label for="event_type" class="form-label">Event Type</label>
-                    <select class="form-select" id="event_type" name="event_type" required>
-                        <option value="">Select</option>
+                <div class="form-group">
+                    <label>Event Type</label>
+                    <select name="event_type" class="input-style" required>
+                        <option value="" hidden>Select</option>
                         <option value="indoor">Indoor</option>
                         <option value="outdoor">Outdoor</option>
                     </select>
                 </div>
             </div>
 
-
-            <div class="row mb-3">
-                <div class="col-md-4">
-                    <label for="total_people" class="form-label">Total People</label>
-                    <input type="number" class="form-control" id="total_people" name="total_people" required>
+            <!-- Main Details -->
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Total People</label>
+                    <input type="number" name="total_people" class="input-style" required>
                 </div>
 
-                <div class="col-md-4">
-                    <label for="food_type" class="form-label">Food Type</label>
-                    <select class="form-select" id="food_type" name="food_type" required onchange="updateMenuOptions()">
-                        <option value="">Select</option>
+                <div class="form-group">
+                    <label>Food Type</label>
+                    <select name="food_type" id="food_type" class="input-style" onchange="updateMenuOptions()" required>
+                        <option value="" hidden>Select</option>
                         <option value="veg">Veg</option>
                         <option value="nonveg">Non-Veg</option>
                     </select>
                 </div>
 
-                <div class="col-md-4">
-                    <label for="menu_type" class="form-label">Menu Type</label>
-                    <select class="form-select" id="menu_type" name="menu_type" required>
+                <div class="form-group">
+                    <label>Menu Type</label>
+                    <select name="menu_type" id="menu_type" class="input-style" required>
                         <option value="">Select Food Type First</option>
                     </select>
                 </div>
             </div>
 
-            <div class="mb-3">
-                <label for="no_of_suppliers" class="form-label">Number of Suppliers</label>
-                <input type="number" class="form-control" id="no_of_suppliers" name="no_of_suppliers" required>
+            <!-- Extra Inputs -->
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Suppliers</label>
+                    <input type="number" name="no_of_suppliers" class="input-style" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Cake (kg)</label>
+                    <input type="number" name="cake_required" min="0" value="0" class="input-style">
+                    <small class="hint">0 means no cake</small>
+                </div>
             </div>
 
-            <div class="mb-3">
-                <label for="cake_required" class="form-label">Cake Required (kg)</label>
-                <input type="number" class="form-control" id="cake_required" name="cake_required" min="0" value="0">
-                <small class="text-muted">0 means no cake</small>
+            <!-- Add-ons -->
+            <div class="addons">
+                <label class="toggle">
+                    <input type="checkbox" name="welcome_drinks">
+                    <span class="toggle-box"></span>
+                    <span class="toggle-text">Welcome Drinks</span>
+                </label>
+
+                <label class="toggle">
+                    <input type="checkbox" name="welcome_chats">
+                    <span class="toggle-box"></span>
+                    <span class="toggle-text">Welcome Chats</span>
+                </label>
+
+                <label class="toggle">
+                    <input type="checkbox" name="pan">
+                    <span class="toggle-box"></span>
+                    <span class="toggle-text">Pan</span>
+                </label>
             </div>
 
-            <div class="form-check mb-2">
-                <input class="form-check-input" type="checkbox" name="welcome_drinks" id="welcome_drinks">
-                <label class="form-check-label" for="welcome_drinks">Welcome Drinks</label>
-            </div>
-            <div class="form-check mb-2">
-                <input class="form-check-input" type="checkbox" name="welcome_chats" id="welcome_chats">
-                <label class="form-check-label" for="welcome_chats">Welcome Chats</label>
-            </div>
-            <div class="form-check mb-4">
-                <input class="form-check-input" type="checkbox" name="pan" id="pan">
-                <label class="form-check-label" for="pan">Pan</label>
-            </div>
+            <!-- Submit -->
+            <button type="submit" class="btn-confirm">Confirm Booking</button>
 
-            <div class="text-center">
-                <button type="submit" class="btn btn-success">Confirm Booking</button>
-            </div>
         </form>
+
     </div>
+
 </div>
 
 <script>
