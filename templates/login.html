@@ -27,6 +27,14 @@
                     </span>
                 </div>
                 <br>
+                {% if messages %}
+                    {% for message in messages %}
+                        <div class="toast-error" id="toast">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                {% endif %}
+                <br>
                 <input type="submit" class="btn btn-success btn-login" value="login">
             </form>
         </div>
@@ -42,5 +50,11 @@ function togglePassword() {
         passwordField.type = "password";
     }
 }
+
+setTimeout(() => {
+    const toast = document.getElementById("toast");
+    if (toast) toast.style.display = "none";
+}, 3000);
+
 </script>
 {% endblock %}

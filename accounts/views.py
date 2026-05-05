@@ -4,6 +4,7 @@ from django.contrib.auth import authenticate,login,logout
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from events.models import EventsList
+from django.contrib import messages
 
 # Create your views here.
 
@@ -37,7 +38,7 @@ def user_login(request):
                 login(request,user)
                 return redirect('home')
         else:
-            return HttpResponse('<h1> Please Check your Creds...')
+            messages.error(request, "Invalid username or password ❌")
         
     return render(request,"login.html")
 
