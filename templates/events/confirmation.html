@@ -1,29 +1,85 @@
-<!-- templates/events/confirmation.html -->
 {% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/pages/confirmation.css' %}">
+{% endblock %}
+
 {% block content %}
 
-<div class="container mt-5">
-    <div class="p-4 bg-light rounded shadow">
-        <h2 class="text-center mb-4">Booking Details</h2>
+<div class="confirm-wrapper">
 
-        <p><strong>Event Name:</strong> {{ details.event_name }}</p>
-        <p><strong>Event Type:</strong> {{ details.event_type }}</p>
-        <p><strong>Event Date:</strong> {{ event_date }}</p>
-        <p><strong>Event Time:</strong> {{ event_time }}</p>
-        <p><strong>Total People:</strong> {{ details.total_people }}</p>
-        <p><strong>Food Type:</strong> {{ details.food_type }}</p>
-        <p><strong>Menu Type:</strong> {{ details.menu_type }}</p>
-        <p><strong>Cake (kg):</strong> {{ details.cake_required }}</p>
-        <p><strong>No. of Suppliers:</strong> {{ details.no_of_suppliers }}</p>
+    <div class="confirm-box">
 
-        <hr>
+        <h2 class="confirm-heading">Booking Summary</h2>
 
+        <!-- Section -->
+        <div class="summary-section">
+            <h5>Event Details</h5>
+
+            <div class="summary-row">
+                <span>Event Name</span>
+                <strong>{{ details.event_name }}</strong>
+            </div>
+
+            <div class="summary-row">
+                <span>Type</span>
+                <strong>{{ details.event_type }}</strong>
+            </div>
+
+            <div class="summary-row">
+                <span>Date</span>
+                <strong>{{ event_date }}</strong>
+            </div>
+
+            <div class="summary-row">
+                <span>Time</span>
+                <strong>{{ event_time }}</strong>
+            </div>
+        </div>
+
+        <!-- Section -->
+        <div class="summary-section">
+            <h5>Catering Details</h5>
+
+            <div class="summary-row">
+                <span>Total People</span>
+                <strong>{{ details.total_people }}</strong>
+            </div>
+
+            <div class="summary-row">
+                <span>Food Type</span>
+                <strong>{{ details.food_type }}</strong>
+            </div>
+
+            <div class="summary-row">
+                <span>Menu</span>
+                <strong>{{ details.menu_type }}</strong>
+            </div>
+
+            <div class="summary-row">
+                <span>Cake</span>
+                <strong>{{ details.cake_required }} kg</strong>
+            </div>
+
+            <div class="summary-row">
+                <span>Suppliers</span>
+                <strong>{{ details.no_of_suppliers }}</strong>
+            </div>
+        </div>
+
+        <!-- CTA -->
         <form method="post" action="{% url 'calculate_price' %}">
             {% csrf_token %}
             <input type="hidden" name="id" value="{{ details.id }}">
-            <button type="submit" class="btn btn-primary">Calculate Final Cost</button>
+
+            <button type="submit" class="btn-final">
+                Calculate Final Cost →
+            </button>
         </form>
+
     </div>
+
 </div>
 
 {% endblock %}

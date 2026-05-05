@@ -1,0 +1,97 @@
+/* Background */
+body {
+    background: linear-gradient(135deg, #0f172a, #667eea);
+    min-height: 100vh;
+}
+
+/* Container */
+.bill-container {
+    display: flex;
+    justify-content: center;
+    padding: 50px 20px;
+}
+
+/* Card */
+.bill-card {
+    width: 100%;
+    max-width: 500px;
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.3);
+}
+
+/* Title */
+.bill-title {
+    text-align: center;
+    font-weight: 700;
+    margin-bottom: 25px;
+    color: #1e293b;
+}
+
+/* Sections */
+.bill-section {
+    margin-bottom: 20px;
+}
+
+/* Rows */
+.bill-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 14px;
+}
+
+.bill-row span {
+    color: #64748b;
+}
+
+.bill-row strong {
+    color: #1e293b;
+}
+
+/* Highlight row */
+.bill-row.highlight strong {
+    color: #667eea;
+    font-weight: 600;
+}
+
+/* Total */
+.bill-total {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 2px solid #ddd;
+    text-align: center;
+}
+
+.bill-total span {
+    display: block;
+    font-size: 14px;
+    color: #64748b;
+}
+
+.bill-total h3 {
+    color: #22c55e;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+/* Button */
+.btn-confirm {
+    width: 100%;
+    margin-top: 20px;
+    padding: 12px;
+    border-radius: 12px;
+
+    background: linear-gradient(135deg, #22c55e, #38f9d7);
+    border: none;
+    color: white;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-confirm:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
