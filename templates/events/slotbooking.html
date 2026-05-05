@@ -1,26 +1,64 @@
 {% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/pages/booking.css' %}">
+{% endblock %}
+
 {% block content %}
-<br>
-<div class="container">
-    <div class="jumbotron">
-        <h2>Slot Booking for {{ event.name }}</h2>
-        <form method="post" action="">
+
+<div class="booking-container">
+
+    <div class="booking-card">
+
+        <h2 class="booking-title">Book Your Slot</h2>
+        <p class="booking-subtitle">{{ event.name }}</p>
+
+        <form method="post">
             {% csrf_token %}
-            <div class="mb-3">
-                <label for="event_date" class="form-label">Event Date</label>
-                <input type="date" class="form-control" id="event_date" name="event_date" required>
+
+            <div class="form-group">
+                <label>Event Date</label>
+                <input type="date" class="form-control booking-input" name="event_date" required>
             </div>
 
-            <div class="mb-3">
-                <label for="event_time" class="form-label">Event Time</label>
-                <input type="time" class="form-control" id="event_time" name="event_time" required>
+            <div class="form-group">
+                <label>Event Time</label>
+                <input type="time" class="form-control booking-input" name="event_time" required>
             </div>
 
-            <button type="submit" class="btn btn-primary">Next</button>
+            <button type="submit" class="btn btn-next">Continue</button>
         </form>
-        <br>
-        <a href="{% url 'indoor_images' event.id %}" class="btn btn-info">Preview Indoor</a>
-        <a href="{% url 'outdoor_images' event.id %}" class="btn btn-info">Preview Outdoor</a>
+
+        <div class="preview-section">
+            <p class="preview-text">Preview Setup</p>
+            <div class="preview-buttons">
+                <a href="{% url 'indoor_images' event.id %}" class="btn btn-preview">Indoor</a>
+                <a href="{% url 'outdoor_images' event.id %}" class="btn btn-preview">Outdoor</a>
+            </div>
+        </div>
+
     </div>
+
 </div>
+{% block extra_js %}
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const dateInput = document.querySelector('input[name="event_date"]');
+    const timeInput = document.querySelector('input[name="event_time"]');
+
+    if (dateInput) {
+        dateInput.addEventListener("click", function () {
+            this.showPicker && this.showPicker();
+        });
+    }
+
+    if (timeInput) {
+        timeInput.addEventListener("click", function () {
+            this.showPicker && this.showPicker();
+        });
+    }
+});
+</script>
+{% endblock %}
 {% endblock %}

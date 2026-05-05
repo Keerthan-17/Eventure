@@ -1,67 +1,86 @@
 {% extends 'base.html' %}
 
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/register.css' %}">
+{% endblock %}
+
 {% block content %}
+
 <br>
 <div class="container">
     <div class="jumbotron">
 
         {% if registered %}
-        <div class="card card-body">
-            <h1>Thank you for Registration</h1>
-            <p>Please proceed to <a href="{% url 'login' %}">Login</a></p>
+        <div class="register-success">
+            <div class="success-icon">
+                <i class="bi bi-check-circle-fill"></i>
+            </div>
+            <h1 class="success-title">Registration Successful</h1>
+            <p class="success-text">
+                Your account has been created successfully.<br>
+                You can now login and continue.
+            </p>
+            <a href="{% url 'login' %}" class="btn-login">
+                Go to Login →
+            </a>
         </div>
         {% else %}
-        <h1>Registration Form</h1>
-        <div class="card card-body">
+        <h1 class="register-title">Create Your Account</h1>
+        <p class="register-subtitle">Fill in your details</p>
+
+        <!-- <h1>Registration Form</h1> -->
+        <div class="card register-card">
             <form enctype="multipart/form-data" method="POST">
                 {% csrf_token %}
                 <div class="row">
                     <div class="col">
-                        <p>Username</p>
+                        <p class="form-label">Username</p>
                         {{form.username}}
                     </div>
                     <div class="col">
-                        <p>Email</p>
+                        <p class="form-label">Email</p>
                         {{form.email}}
                     </div>
                 </div>
                 <div class="row">
                     <div class="col">
-                        <p>Phone</p>
+                        <p class="form-label">Phone</p>
                         {{form1.phone}}
                     </div>
                     <div class="col">
-                        <p>House_no</p>
+                        <p class="form-label">House_no</p>
                         {{form1.house_no}}
                     </div>
                 </div>
                 <div class="row">
                     <div class="col">
-                        <p>Street</p>
+                        <p class="form-label">Street</p>
                         {{form1.street}}
                     </div>
                     <div class="col">
-                        <p>City</p>
+                        <p class="form-label">City</p>
                         {{form1.city}}
                     </div>
                 </div>
                 <div class="row">
                     <div class="col">
-                        <p>State</p>
+                        <p class="form-label">State</p>
                         {{form1.state}}
                     </div>
                     <div class="col">
-                        <p>Zipcode</p>
+                        <p class="form-label">Zipcode</p>
                         {{form1.zipcode}}
                     </div>
                 </div>
                 <div class="row">
                     <div class="col">
-                        <p>Password</p>
+                        <p class="form-label">Password</p>
                         {{form.password}}
                     </div>
                     <div class="col">
-                        <p>Profile_pic</p>
+                        <p class="form-label">Profile_pic</p>
                         {{form1.profile_pic}}
                     </div>
                 </div>

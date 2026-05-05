@@ -1,0 +1,115 @@
+/* Background */
+body {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    min-height: 100vh;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* Center container */
+.container {
+    margin-top: 80px;
+}
+
+/* Login card */
+.login-card {
+    max-width: 400px;
+    margin: auto;
+    padding: 30px;
+    border-radius: 15px;
+    background: #ffffff;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+/* Title */
+.login-title {
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: white;
+}
+
+/* Subtitle */
+.login-subtitle {
+    text-align: center;
+    color: #777;
+    margin-bottom: 20px;
+}
+
+/* Labels */
+.form-label {
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+/* Inputs */
+input {
+    width: 100%;
+    padding: 10px 40px 10px 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    transition: 0.3s;
+}
+
+/* Focus */
+input:focus {
+    border-color: #667eea;
+    outline: none;
+    box-shadow: 0 0 6px rgba(102,126,234,0.4);
+}
+
+/* Button */
+.btn-login {
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    font-weight: bold;
+    background: linear-gradient(135deg, #43e97b, #38f9d7);
+    border: none;
+    transition: 0.3s;
+}
+
+.btn-login:hover {
+    transform: translateY(-2px);
+}
+
+/* Password wrapper */
+.password-wrapper {
+    position: relative;
+}
+
+/* Eye icon */
+.toggle-password {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 18px;
+    color: #555;
+}
+
+.toast-error {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+
+    background: #ff4d4d;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 10px;
+
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+
+    animation: slideIn 0.4s ease;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}

@@ -1,0 +1,131 @@
+/* Background */
+body {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    min-height: 100vh;
+}
+
+/* Container */
+.catering-container {
+    padding: 40px 20px;
+}
+
+/* Header */
+.catering-title {
+    color: white;
+    font-weight: 700;
+}
+
+.catering-subtitle {
+    color: rgba(255,255,255,0.8);
+    margin-bottom: 20px;
+}
+
+/* Buttons */
+.catering-actions {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.btn-yes {
+    background: linear-gradient(135deg, #43e97b, #38f9d7);
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+}
+
+.btn-no {
+    background: linear-gradient(135deg, #e40404, #f1da04);
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+}
+
+/* Section title */
+.menu-title {
+    color: white;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+/* Card layout */
+.menu-card-alt {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: #ffffff;
+    border-radius: 15px;
+    padding: 15px 20px;
+    margin-bottom: 15px;
+
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    transition: 0.3s;
+}
+
+.menu-card-alt:hover {
+    transform: translateY(-3px);
+}
+
+/* Left price section */
+.menu-left {
+    min-width: 100px;
+    text-align: center;
+}
+
+.menu-price-alt {
+    font-size: 22px;
+    font-weight: 700;
+    color: #667eea;
+}
+
+.per-head {
+    font-size: 12px;
+    color: #64748b;
+}
+
+/* Right content */
+.menu-right {
+    flex: 1;
+    padding-left: 15px;
+}
+
+/* Items */
+.menu-items-alt {
+    font-size: 14px;
+    color: #334155;
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+/* Button */
+.btn-select {
+    padding: 6px 14px;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #43e97b, #38f9d7);
+    color: white;
+    border: none;
+    font-size: 13px;
+    transition: 0.3s;
+}
+
+.btn-select:hover {
+    transform: translateY(-2px);
+}
+
+/* Next button */
+.btn-next {
+    padding: 12px 30px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #667eea, #38f9d7);
+    color: white;
+    border: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-next:hover {
+    transform: translateY(-2px);
+}

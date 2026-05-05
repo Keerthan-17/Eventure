@@ -1,15 +1,21 @@
 {% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/pages/update.css' %}">
+{% endblock %}
 
 {% block content %}
-<br>
+
 <div class="container">
-    <div class="jumbotron">
-        <h1>Update Form</h1>
-        <form action="{% url 'update' %}" method="POST">
+    <div class="update-card">
+        <h1 class="update-title">Update Profile</h1>
+
+        <form action="{% url 'update' %}" method="POST" enctype="multipart/form-data">
             {% csrf_token %}
             {{form.as_p}}
             {{form1.as_p}}
-            <input type="submit" class="btn btn-success" value="UPDATE">
+            <input type="submit" class="btn btn-update" value="UPDATE">
         </form>
     </div>
 </div>

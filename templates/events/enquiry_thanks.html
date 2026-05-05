@@ -1,11 +1,30 @@
 {% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/pages/success.css' %}">
+{% endblock %}
 
 {% block content %}
-<br>
-<div class="container">
-    <div class="jumbotron text-center">
-        <h2>Thank you for contacting us!</h2>
-        <p>You will get a call back soon.</p>
+
+<div class="success-container">
+
+    <div class="success-card">
+
+        <div class="success-icon">
+            <i class="bi bi-check-circle-fill"></i>
+        </div>
+
+        <h2 class="success-title">Thank you for contacting us!</h2>
+
+        <p class="success-message">
+            You will receive a call back shortly.
+        </p>
+
+        <a href="{% url 'home' %}" class="btn btn-home">Back to Home</a>
+
     </div>
+
 </div>
+
 {% endblock %}
