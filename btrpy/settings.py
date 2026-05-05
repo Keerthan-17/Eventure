@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 
 from pathlib import Path
 import os
+from dotenv import load_dotenv
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -45,8 +47,8 @@ INSTALLED_APPS = [
 
 # re-captcha config
 
-RECAPTCHA_PUBLIC_KEY = '6Le3GEYrAAAAAJqTL3C1C1DQZ0m3wfc087qxovVC'
-RECAPTCHA_PRIVATE_KEY = '6Le3GEYrAAAAACmswIsrGT7US_rwsMcH-m1PW2Wb'
+RECAPTCHA_PUBLIC_KEY = os.environ.get('RECAPTCHA_PUBLIC_KEY')
+RECAPTCHA_PRIVATE_KEY = os.environ.get('RECAPTCHA_PRIVATE_KEY')
 
 
 MIDDLEWARE = [
